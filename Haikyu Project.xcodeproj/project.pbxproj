@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		6B4D3DC8210184A5005E1C3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4D3DC7210184A5005E1C3F /* AppDelegate.swift */; };
-		6B4D3DCA210184A5005E1C3F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4D3DC9210184A5005E1C3F /* ViewController.swift */; };
+		6B4D3DCA210184A5005E1C3F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4D3DC9210184A5005E1C3F /* LoginViewController.swift */; };
 		6B4D3DCD210184A5005E1C3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B4D3DCB210184A5005E1C3F /* Main.storyboard */; };
 		6B4D3DCF210184A7005E1C3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B4D3DCE210184A7005E1C3F /* Assets.xcassets */; };
 		6B4D3DD2210184A7005E1C3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B4D3DD0210184A7005E1C3F /* LaunchScreen.storyboard */; };
 		6B4D3DDA2101850E005E1C3F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6B4D3DD92101850E005E1C3F /* GoogleService-Info.plist */; };
+		6BE65E04211D41340072EA05 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE65E03211D41340072EA05 /* MyViewController.swift */; };
 		A0262185D7F681F0ADB2401E /* Pods_Haikyu_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCE70D7CA0B698A70F4CC3 /* Pods_Haikyu_Project.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,12 +22,13 @@
 		45DCE70D7CA0B698A70F4CC3 /* Pods_Haikyu_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haikyu_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B4D3DC4210184A5005E1C3F /* Haikyu Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Haikyu Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B4D3DC7210184A5005E1C3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6B4D3DC9210184A5005E1C3F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6B4D3DC9210184A5005E1C3F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6B4D3DCC210184A5005E1C3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6B4D3DCE210184A7005E1C3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B4D3DD1210184A7005E1C3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B4D3DD3210184A7005E1C3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B4D3DD92101850E005E1C3F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6BE65E03211D41340072EA05 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		95B45AD6C4788F8019623FFD /* Pods-Haikyu Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haikyu Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Haikyu Project/Pods-Haikyu Project.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,12 +74,13 @@
 			isa = PBXGroup;
 			children = (
 				6B4D3DC7210184A5005E1C3F /* AppDelegate.swift */,
-				6B4D3DC9210184A5005E1C3F /* ViewController.swift */,
+				6B4D3DC9210184A5005E1C3F /* LoginViewController.swift */,
 				6B4D3DCB210184A5005E1C3F /* Main.storyboard */,
 				6B4D3DCE210184A7005E1C3F /* Assets.xcassets */,
 				6B4D3DD0210184A7005E1C3F /* LaunchScreen.storyboard */,
 				6B4D3DD3210184A7005E1C3F /* Info.plist */,
 				6B4D3DD92101850E005E1C3F /* GoogleService-Info.plist */,
+				6BE65E03211D41340072EA05 /* MyViewController.swift */,
 			);
 			path = "Haikyu Project";
 			sourceTree = "<group>";
@@ -214,7 +217,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B4D3DCA210184A5005E1C3F /* ViewController.swift in Sources */,
+				6B4D3DCA210184A5005E1C3F /* LoginViewController.swift in Sources */,
+				6BE65E04211D41340072EA05 /* MyViewController.swift in Sources */,
 				6B4D3DC8210184A5005E1C3F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
