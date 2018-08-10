@@ -17,7 +17,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         let loginButton = FBSDKLoginButton()
-        loginButton.center = view.center
+        loginButton.center.x = view.center.x
+        loginButton.center.y = view.center.y + 40
         loginButton.delegate = self as FBSDKLoginButtonDelegate
         
         view.addSubview(loginButton)
