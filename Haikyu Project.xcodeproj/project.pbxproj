@@ -14,7 +14,7 @@
 		6B4D3DD2210184A7005E1C3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B4D3DD0210184A7005E1C3F /* LaunchScreen.storyboard */; };
 		6B4D3DDA2101850E005E1C3F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6B4D3DD92101850E005E1C3F /* GoogleService-Info.plist */; };
 		6BE1B7D42126267A00A24BBC /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE1B7D32126267A00A24BBC /* Activity.swift */; };
-		6BE65E04211D41340072EA05 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE65E03211D41340072EA05 /* MyViewController.swift */; };
+		6BE65E04211D41340072EA05 /* ActivitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE65E03211D41340072EA05 /* ActivitiesTableViewController.swift */; };
 		A0262185D7F681F0ADB2401E /* Pods_Haikyu_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCE70D7CA0B698A70F4CC3 /* Pods_Haikyu_Project.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +30,7 @@
 		6B4D3DD3210184A7005E1C3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B4D3DD92101850E005E1C3F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6BE1B7D32126267A00A24BBC /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
-		6BE65E03211D41340072EA05 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		6BE65E03211D41340072EA05 /* ActivitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesTableViewController.swift; sourceTree = "<group>"; };
 		95B45AD6C4788F8019623FFD /* Pods-Haikyu Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haikyu Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Haikyu Project/Pods-Haikyu Project.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,7 +82,7 @@
 				6B4D3DD0210184A7005E1C3F /* LaunchScreen.storyboard */,
 				6B4D3DD3210184A7005E1C3F /* Info.plist */,
 				6B4D3DD92101850E005E1C3F /* GoogleService-Info.plist */,
-				6BE65E03211D41340072EA05 /* MyViewController.swift */,
+				6BE65E03211D41340072EA05 /* ActivitiesTableViewController.swift */,
 				6BE1B7D32126267A00A24BBC /* Activity.swift */,
 			);
 			path = "Haikyu Project";
@@ -223,7 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B4D3DCA210184A5005E1C3F /* LoginViewController.swift in Sources */,
-				6BE65E04211D41340072EA05 /* MyViewController.swift in Sources */,
+				6BE65E04211D41340072EA05 /* ActivitiesTableViewController.swift in Sources */,
 				6BE1B7D42126267A00A24BBC /* Activity.swift in Sources */,
 				6B4D3DC8210184A5005E1C3F /* AppDelegate.swift in Sources */,
 			);

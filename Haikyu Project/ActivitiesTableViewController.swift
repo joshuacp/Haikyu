@@ -13,8 +13,7 @@ import FBSDKLoginKit
 import Firebase
 import FirebaseDatabase
 
-class MyViewController: UIViewController, FBSDKLoginButtonDelegate {
-    @IBOutlet var TableView: UITableView!
+class ActivitiesTableViewController: UITableViewController, FBSDKLoginButtonDelegate {
     
     var _activities: [Activity] = []
     
@@ -24,15 +23,16 @@ class MyViewController: UIViewController, FBSDKLoginButtonDelegate {
         let ref = Database.database().reference(withPath: "activities")
 
         ref.observe(.value) { snapshot in
+            var newActivities: [Activity] = []
             for child in snapshot.children {
                 if let snapshot = child as? DataSnapshot,
                     let activity = Activity(snapshot: snapshot) {
-                    self._activities.append(activity)
+                    newActivities.append(activity)
                 }
             }
+            self._activities = newActivities
+            self.tableView.reloadData()
         }
-        ref.child("hiking").setValue(["name": "hiking"])
-        ref.child("rock climbing").setValue(["name": "rock climbing"])
         
         let loginButton = FBSDKLoginButton()
         loginButton.center.x = view.center.x
@@ -40,6 +40,19 @@ class MyViewController: UIViewController, FBSDKLoginButtonDelegate {
         loginButton.delegate = self as FBSDKLoginButtonDelegate
         
         view.addSubview(loginButton)
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return _activities.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()// tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
+        let activity = _activities[indexPath.row]
+        
+        cell.textLabel?.text = activity.name
+        
+        return cell
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
@@ -52,6 +65,7 @@ class MyViewController: UIViewController, FBSDKLoginButtonDelegate {
         Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
             if let error = error {
                 // ...
+                print(error)
                 return
             }
             // User is signed in
