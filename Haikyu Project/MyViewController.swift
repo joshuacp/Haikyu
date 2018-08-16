@@ -11,12 +11,29 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
+import FirebaseDatabase
 
 class MyViewController: UIViewController, FBSDKLoginButtonDelegate {
+    @IBOutlet var TableView: UITableView!
+    
+    var _activities: [Activity] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let ref = Database.database().reference(withPath: "activities")
+
+        ref.observe(.value) { snapshot in
+            for child in snapshot.children {
+                if let snapshot = child as? DataSnapshot,
+                    let activity = Activity(snapshot: snapshot) {
+                    self._activities.append(activity)
+                }
+            }
+        }
+        ref.child("hiking").setValue(["name": "hiking"])
+        ref.child("rock climbing").setValue(["name": "rock climbing"])
+        
         let loginButton = FBSDKLoginButton()
         loginButton.center.x = view.center.x
         loginButton.center.y = view.center.y + 40

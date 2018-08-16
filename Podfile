@@ -8,6 +8,7 @@ target 'Haikyu Project' do
   # Pods for Haikyu Project
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
+pod 'Firebase/Database'
 pod 'FBSDKLoginKit'
 
 end
