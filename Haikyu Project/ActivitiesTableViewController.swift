@@ -16,6 +16,7 @@ import FirebaseDatabase
 class ActivitiesTableViewController: UITableViewController, FBSDKLoginButtonDelegate {
     
     var _activities: [Activity] = []
+    var _selectedActivities: [Activity] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,17 +43,30 @@ class ActivitiesTableViewController: UITableViewController, FBSDKLoginButtonDele
         view.addSubview(loginButton)
     }
     
+    @IBAction func DoneButtonPressed(_ sender: UIBarButtonItem) {
+        print(_selectedActivities)
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return _activities.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()// tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
+        let cell = UITableViewCell()
         let activity = _activities[indexPath.row]
         
         cell.textLabel?.text = activity.name
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedActivity = _activities[indexPath.row]
+        if let index = _selectedActivities.index(of: selectedActivity) {
+            _selectedActivities.remove(at: index)
+        } else {
+            _selectedActivities.append(selectedActivity)
+        }
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {

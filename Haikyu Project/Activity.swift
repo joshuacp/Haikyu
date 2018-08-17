@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 import FirebaseDatabase
 
-struct Activity {
+struct Activity: Equatable {
     
     let ref: DatabaseReference?
     let key: String
@@ -38,5 +38,9 @@ struct Activity {
         return [
             "name": name
         ]
+    }
+    
+    static func ==(lhs: Activity, rhs: Activity) -> Bool {
+        return lhs.key == rhs.key && lhs.name == rhs.name
     }
 }
