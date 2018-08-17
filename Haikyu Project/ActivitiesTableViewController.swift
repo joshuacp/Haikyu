@@ -56,16 +56,19 @@ class ActivitiesTableViewController: UITableViewController, FBSDKLoginButtonDele
         let activity = _activities[indexPath.row]
         
         cell.textLabel?.text = activity.name
-        
+        cell.accessoryType = _selectedActivities.contains(activity) ? .checkmark : .none
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedActivity = _activities[indexPath.row]
+        let cell = tableView.cellForRow(at: indexPath)
         if let index = _selectedActivities.index(of: selectedActivity) {
             _selectedActivities.remove(at: index)
+            cell?.accessoryType = .none
         } else {
             _selectedActivities.append(selectedActivity)
+            cell?.accessoryType = .checkmark
         }
     }
     
