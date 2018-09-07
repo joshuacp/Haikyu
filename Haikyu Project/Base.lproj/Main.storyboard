@@ -98,14 +98,29 @@
         <!--Settings-->
         <scene sceneID="O77-pg-b5G">
             <objects>
-                <viewController id="3Ip-uJ-5Nf" sceneMemberID="viewController">
+                <viewController id="3Ip-uJ-5Nf" customClass="SettingsViewController" customModule="Haikyu_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AQH-q0-WAB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Nkn-TW-uD1">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4h1-0l-0lM" firstAttribute="bottom" secondItem="Nkn-TW-uD1" secondAttribute="bottom" id="Bj6-t5-RSu"/>
+                            <constraint firstItem="Nkn-TW-uD1" firstAttribute="top" secondItem="4h1-0l-0lM" secondAttribute="top" id="W1k-QK-xU9"/>
+                            <constraint firstItem="4h1-0l-0lM" firstAttribute="trailing" secondItem="Nkn-TW-uD1" secondAttribute="trailing" id="jz9-da-2wf"/>
+                            <constraint firstItem="Nkn-TW-uD1" firstAttribute="leading" secondItem="4h1-0l-0lM" secondAttribute="leading" id="loP-PP-xOk"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4h1-0l-0lM"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="settings" selectedImage="settings" id="Xo0-06-VWo"/>
+                    <connections>
+                        <outlet property="TableView" destination="Nkn-TW-uD1" id="Mgg-PF-Opb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qj2-TY-N22" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
