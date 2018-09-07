@@ -10,9 +10,7 @@ import Foundation
 import UIKit
 import FBSDKLoginKit
 
-class SettingsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    @IBOutlet var TableView: UITableView!
+class SettingsTableViewController : UITableViewController {
     
     enum Section: Int {
         case info = 0, logout
@@ -24,16 +22,16 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
     var _userData: NSDictionary = [:]
     
     override func viewDidLoad() {
-        TableView.delegate = self
-        TableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
         getFBUserData()
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case Section.info.rawValue:
             return 2
@@ -44,7 +42,7 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case Section.info.rawValue:
             return GetInfoCell(row: indexPath.row)
@@ -75,7 +73,7 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(indexPath.section == Section.logout.rawValue) {
             let loginManager = FBSDKLoginManager()
             loginManager.logOut()
@@ -91,7 +89,7 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
                     self._userData = result as! NSDictionary
-                    self.TableView.reloadData()
+                    self.tableView.reloadData()
                 }
             })
         }
