@@ -18,12 +18,15 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
         case info = 0, logout
     }
     enum Row: Int {
-        case name = 0, username, email
+        case name = 0, email
     }
+    
+    var _userData: NSDictionary = [:]
     
     override func viewDidLoad() {
         TableView.delegate = self
         TableView.dataSource = self
+        getFBUserData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -33,7 +36,7 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case Section.info.rawValue:
-            return 3
+            return 2
         case Section.logout.rawValue:
             return 1
         default:
@@ -59,13 +62,10 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
         let cell = UITableViewCell()
         switch row {
         case Row.name.rawValue:
-            cell.textLabel?.text = "Name"
-            cell.isUserInteractionEnabled = false
-        case Row.username.rawValue:
-            cell.textLabel?.text = "Username"
+            cell.textLabel?.text = _userData["name"] as? String
             cell.isUserInteractionEnabled = false
         case Row.email.rawValue:
-            cell.textLabel?.text = "Email"
+            cell.textLabel?.text = _userData["email"] as? String
             cell.isUserInteractionEnabled = false
         default:
             return UITableViewCell()
@@ -81,6 +81,17 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
                 let loginController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController")
                 self.present(loginController, animated: true, completion: nil)
             }
+        }
+    }
+    
+    func getFBUserData(){
+        if((FBSDKAccessToken.current()) != nil){
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
+                if (error == nil){
+                    self._userData = result as! NSDictionary
+                    self.TableView.reloadData()
+                }
+            })
         }
     }
 }
