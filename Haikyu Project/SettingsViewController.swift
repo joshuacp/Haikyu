@@ -51,6 +51,8 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
         case Section.logout.rawValue:
             let cell = UITableViewCell()
             cell.textLabel?.text = "Logout"
+            cell.textLabel?.textColor = .red
+            cell.textLabel?.textAlignment = .center
             cell.isUserInteractionEnabled = true
             return cell
         default:
